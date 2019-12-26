@@ -1,0 +1,18 @@
+
+
+Three things for expressions
+
+1. Syntax
+2. Type-checking rules
+3. Evaluation rules
+
+
+Conditionals:
+    if e1 then e2 else e3
+
+Type-checking:
+    e1 must have type bool, e2 and e3 must have the same type, whatever that maybe
+    same as the type of the whole expression
+
+Inteter division
+    val v = 2 div 3
