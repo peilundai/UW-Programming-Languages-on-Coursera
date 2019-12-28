@@ -1,0 +1,14 @@
+
+
+Three ways to build compound types
+    - each-of (AND): (x, y, z), tuples, int * bool 
+    - one-of (OR): take one type of a set of types, e.g. status of a printer. Option: int option, contains an int or it cocntains no data
+    - self reference
+    
+Another way to build each-of compound types 
+    - record: each-of 
+    - one-of: either an int or string, OOP does one-of types 
+    
+Syntactic sugar
+    - use another way to make things easier: records and tuples 
+

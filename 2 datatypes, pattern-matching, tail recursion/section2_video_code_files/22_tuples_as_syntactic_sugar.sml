@@ -15,4 +15,3 @@ val sum = #1 a_pair + #2 another_pair
 
 val x = {3="hi", 1=true};
 val y = {3="hi", 2=3+2, 1=true};
-
