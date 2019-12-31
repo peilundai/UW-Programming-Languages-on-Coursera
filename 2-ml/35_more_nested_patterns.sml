@@ -4,7 +4,7 @@
 (* another elegant use of "deep" patterns *)
 fun nondecreasing xs =
     case xs of
-	[] => true
+	      [] => true
       | x::[] => true
       | head::(neck::rest) => (head <= neck andalso nondecreasing (neck::rest))
 

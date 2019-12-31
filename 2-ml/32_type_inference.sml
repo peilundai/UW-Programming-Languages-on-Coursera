@@ -9,7 +9,7 @@ fun full_name1 {first=x, middle=y, last=z} =
 
 (* these versions will not type-check without type annotations because
    the type-checker cannot figure out if there might be other fields *)
-fun sum_triple2 (triple : int*int*int) =
+fun sum_triple2 (triple : int*int*int) = 
 	   #1 triple + #2 triple + #3 triple
 
 fun full_name2 (r : {first:string, middle:string,
@@ -23,3 +23,6 @@ fun partial_sum (x, y, z) =
 
 fun partial_name {first=x, middle=y, last=z} =
     x ^ " " ^ z
+
+
+(* val a = partial_name {first="hello", middle = ", ", last="world"} *)
