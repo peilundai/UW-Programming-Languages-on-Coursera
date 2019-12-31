@@ -41,7 +41,6 @@ fun double_n_times (n,x) = n_times(double,n,x)
 fun nth_tail (n,x) = n_times(tl,n,x)
 
 (* we can then use n_times for more things we did not plan on originally *)
-
 fun triple x = 3*x
 
 fun triple_n_times (n,x) = n_times(triple,n,x)

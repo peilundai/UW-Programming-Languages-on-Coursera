@@ -1,7 +1,7 @@
 // Programming Languages, Dan Grossman
 // Section 3: Optional: Closure Idioms Without Closures in C
 
-// Note: This code compiles but has not been carefully tested. 
+// Note: This code compiles but has not been carefully tested.
 //       Bug reports welcome.
 
 #include <stdlib.h>
@@ -11,21 +11,23 @@
 // The key point is that function pointers are only code pointers
 
 // Rather than create structs for closures, which would work fine,
-// we follow common C practice of having higher-order functions 
+// we follow common C practice of having higher-order functions
 // take explicit environment fields as another argument
-//  -- if they don't, then they are much less useful 
+//  -- if they don't, then they are much less useful
 
 // void* requires lots of unchecked conversions between types,
 // but C has no notion of type variables
 
 typedef struct List list_t;
-struct List {
-  void * head;
-  list_t * tail;
+struct List
+{
+  void *head;
+  list_t *tail;
 };
 
-list_t * makelist (void * x, list_t * xs) {
-  list_t * ans = (list_t *)malloc(sizeof(list_t));
+list_t *makelist(void *x, list_t *xs)
+{
+  list_t *ans = (list_t *)malloc(sizeof(list_t));
   ans->head = x;
   ans->tail = xs;
   return ans;
@@ -35,23 +37,27 @@ list_t * makelist (void * x, list_t * xs) {
 // the loop-based ones require mutation and previous pointers.
 // But the more important point is the explicit env field passed to the
 // function pointer
-list_t * map(void* (*f)(void*,void*), void* env, list_t * xs) {
-  if(xs==NULL)
+list_t *map(void *(*f)(void *, void *), void *env, list_t *xs)
+{
+  if (xs == NULL)
     return NULL;
-  return makelist(f(env,xs->head), map(f,env,xs->tail));
+  return makelist(f(env, xs->head), map(f, env, xs->tail));
 }
 
-list_t * filter(bool (*f)(void*,void*), void* env, list_t * xs) {
-  if(xs==NULL)
+list_t *filter(bool (*f)(void *, void *), void *env, list_t *xs)
+{
+  if (xs == NULL)
     return NULL;
-  if(f(env,xs->head))
-    return makelist(xs->head, filter(f,env,xs->tail));
-  return filter(f,env,xs->tail);
+  if (f(env, xs->head))
+    return makelist(xs->head, filter(f, env, xs->tail));
+  return filter(f, env, xs->tail);
 }
 
-int length(list_t* xs) {
+int length(list_t *xs)
+{
   int ans = 0;
-  while(xs != NULL) {
+  while (xs != NULL)
+  {
     ++ans;
     xs = xs->tail;
   }
@@ -59,27 +65,31 @@ int length(list_t* xs) {
 }
 
 // clients of our list implementation:
-// [the clients that cast from void* to intptr_t are technically not legal C, 
+// [the clients that cast from void* to intptr_t are technically not legal C,
 //  as explained in detail below if curious]
 
 // awful type casts to match what map expects
-void* doubleInt(void* ignore, void* i) {
-  return (void*)(((intptr_t)i)*2);
+void *doubleInt(void *ignore, void *i)
+{
+  return (void *)(((intptr_t)i) * 2);
 }
 
 // assumes list holds intptr_t fields
-list_t * doubleAll(list_t * xs) {
+list_t *doubleAll(list_t *xs)
+{
   return map(doubleInt, NULL, xs);
 }
 
 // awful type casts to match what filter expects
-bool isN(void* n, void* i) {
-  return ((intptr_t)n)==((intptr_t)i);
+bool isN(void *n, void *i)
+{
+  return ((intptr_t)n) == ((intptr_t)i);
 }
 
 // assumes list hold intptr_t fields
-int countNs(list_t * xs, intptr_t n) {
-  return length(filter(isN, (void*)n, xs));
+int countNs(list_t *xs, intptr_t n)
+{
+  return length(filter(isN, (void *)n, xs));
 }
 
 /*
