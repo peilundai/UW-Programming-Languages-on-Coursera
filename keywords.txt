@@ -1,0 +1,7 @@
+
+
+
+lexical scope
+dynamic scope
+function closure
+currying
