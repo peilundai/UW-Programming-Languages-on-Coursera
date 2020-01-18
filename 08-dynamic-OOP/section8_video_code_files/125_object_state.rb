@@ -3,14 +3,14 @@
 
 class A
 
-  F_constant = 1
+  F_constant = 1 # states can only be accessed by methods of the object
 
   def m1()
-    @foo = 0
+    @foo = 0 # add @ to indicate it is instance variable 
   end
 
   def m2(x)
-    @foo += x
+    @foo += x # nil object if you don't have @foo defined 
   end
 
   def foo()
@@ -39,8 +39,9 @@ end
 class B 
   # uses initialize method, which is better than m1
   # initialize can take arguments too (here providing defaults)
-  def initialize(f=0)
+  def initialize(f=0) # special method, called when the object is created, i.e. b = B.new
     @foo = f
+    @bar = f 
   end
 
   def m2 x
@@ -56,10 +57,10 @@ end
 class C
   # we now add in a class-variable, class-constant, and class-method
 
-  Dans_Age = 38
+  Dans_Age = 38 # capital letter, class constants. public outside class. C::Dan_age 
 
-  def self.reset_bar()
-    @@bar = 0
+  def self.reset_bar() # class method with self.MethodName()
+    @@bar = 0 # class variables with @@ 
   end
 
   def initialize(f=0)
@@ -79,6 +80,21 @@ class C
     @@bar
   end
 end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 # example uses 
 =begin
