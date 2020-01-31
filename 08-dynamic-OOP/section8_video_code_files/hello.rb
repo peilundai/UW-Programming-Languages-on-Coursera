@@ -10,8 +10,6 @@ class Hello  # must be capital
 
 end 
 
-
-
 class A 
 
     def m1

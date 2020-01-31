@@ -26,3 +26,4 @@ f = Foo.new(1000)
 f.silly {|a,b| 2*a - b}
 
 f.count(10) {|i| (i * i) == (34 * i)}
+

@@ -20,4 +20,3 @@ fun even x = false
 
 val a3 = odd 7
 val _ = print "\n"
-

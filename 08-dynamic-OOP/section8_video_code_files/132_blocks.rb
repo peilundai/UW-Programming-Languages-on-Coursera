@@ -18,6 +18,7 @@ a.all? # implicit are elements "true" (i.e., neither false nor nil)
 a.inject(0) {|acc,elt| acc+elt }
 a.select {|x| x > 7 } #non-synonym: filter
 
+
 def t i
   (0..i).each do |j|
     print "  " * j

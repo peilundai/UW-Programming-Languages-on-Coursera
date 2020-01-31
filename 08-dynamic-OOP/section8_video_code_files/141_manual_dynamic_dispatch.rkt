@@ -93,6 +93,7 @@
                         (send self 'set-r-theta r theta)))))
       (obj-methods pt)))))
 
+
 (define p1 (make-point -4 0))
 p1
 (send p1 'get-x)
@@ -116,3 +117,4 @@ p3
 (send p3 'distToOrigin)
 (send p3 'set-y 3)
 (send p3 'distToOrigin)
+ 

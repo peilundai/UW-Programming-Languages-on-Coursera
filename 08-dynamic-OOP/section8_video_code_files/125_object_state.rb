@@ -12,7 +12,7 @@ class A
   def m2(x)
     @foo += x # nil object if you don't have @foo defined 
   end
-
+  
   def foo()
     @foo
   end
