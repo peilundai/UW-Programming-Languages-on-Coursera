@@ -7,6 +7,7 @@ class MyPiece < Piece
   # The constant All_My_Pieces should be declared here
 
   # your enhancements here
+  
 
 end
 

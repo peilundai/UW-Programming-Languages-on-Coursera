@@ -42,6 +42,7 @@ class GeometryValue
   def real_close_point(x1,y1,x2,y2) 
     real_close(x1,x2) && real_close(y1,y2)
   end
+
   # two_points_to_line could return a Line or a VerticalLine
   def two_points_to_line(x1,y1,x2,y2) 
     if real_close(x1,x2)
@@ -198,3 +199,4 @@ class Shift < GeometryExpression
     @e = e
   end
 end
+
