@@ -29,6 +29,7 @@ in
 	else (print "preprocess does not flip an improper LineSegment successfully\n")
 end;
 
+
 (* eval_prog tests with Shift*)
 let 
 	val Point(a,b) = (eval_prog (preprocess_prog (Shift(3.0, 4.0, Point(4.0,4.0))), []))
@@ -58,4 +59,4 @@ in
 	if real_equal(a,c) andalso real_equal(b,d)
 	then (print "eval_prog with shadowing 'a' in environment is working properly\n")
 	else (print "eval_prog with shadowing 'a' in environment is not working properly\n")
-end;
+end; 

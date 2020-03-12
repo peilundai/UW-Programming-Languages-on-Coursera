@@ -24,4 +24,3 @@ elsif ARGV[0] == "original"
 else
   puts "usage: hw6runner.rb [enhanced | original]"
 end
-
